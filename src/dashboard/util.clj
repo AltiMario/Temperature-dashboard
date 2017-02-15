@@ -5,9 +5,10 @@
             [nomad :refer [defconfig]]
             [clojure.java.io :as io]))
 
-(defconfig config (io/resource "config.edn"))
 
+(defconfig config (io/resource "config.edn"))
 (def wug-key (:wug-key (config)))
+
 
 (defn create-url
   "build the url and use the 'conditions' service by default"
@@ -40,7 +41,7 @@
 
 
 (defn fake-wug-service-call [place]
-  "fake call to simulate an api request (used in dev to save the limited free connections)"
+  "fake call to simulate an api request (used in dev to save the limited free connections from wunderground)"
   (let [temp-range (range -10 30)]
     (Thread/sleep (+ 500 (rand-int 2500)))                  ;simulate a latency
     (if (and (< (rand-int 100) 95)                          ;5% of possibility of not success

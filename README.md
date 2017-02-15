@@ -1,7 +1,8 @@
 # Temperature-dashboard ver 0.1
 
 A simple dashboard to display the current and forecasted temperature of some European capital.
-Developed with WebSocket and multithreading design. 
+
+* Developed with WebSocket and Multithreading architecture. 
 
 
 ## Technical Requirements

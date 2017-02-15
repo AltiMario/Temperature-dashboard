@@ -12,15 +12,16 @@
             [taoensso.timbre :as timbre])
   (:gen-class))
 
+
 (def clients (atom {}))
 (def city-temperature (atom {}))
-
 (def country-city '({:country-code "IT" :city "Rome"}
                      {:country-code "ES" :city "Madrid"}
                      {:country-code "GB" :city "London"}
                      {:country-code "FR" :city "Paris"}
                      {:country-code "NO" :city "Oslo"}
                      {:country-code "GR" :city "Athens"}))
+
 
 (defn ws
   "websocket connection/disconnection with all clients"
