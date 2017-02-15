@@ -1,0 +1,3 @@
+{:nomad/private-file #nomad/file "/home/altimario/clj-project/secret-wug.edn"
+ :server             {:port 8080}
+ :wug-key            :useyoursecretkey}
