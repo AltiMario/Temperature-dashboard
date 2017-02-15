@@ -1,7 +1,7 @@
 (defproject dashboard "0.1.0-SNAPSHOT"
   :description "Shows current and forecasted temperature in some European capital"
   :license {:name "Eclipse Public License"
-            :url "http://www.eclipse.org/legal/epl-v10.html"}
+            :url  "http://www.eclipse.org/legal/epl-v10.html"}
   :dependencies [[org.clojure/clojure "1.8.0"]
                  [cheshire "5.7.0"]
                  [ring "1.5.1"]

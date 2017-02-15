@@ -24,7 +24,7 @@
 
 
 (defn- call-api
-  "retrieve the data from the wunderground api"
+  "retrieve the data from the api"
   [url]
   (do
     (json/decode

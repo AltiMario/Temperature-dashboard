@@ -51,7 +51,7 @@
 
 
 (defn observation->map-entry
-  "Take the relevant into (city and temperature) from the hash-map of wunderground"
+  "Take the relevant info (city and temperature) from the hash-map of wunderground"
   [data]
   (let [city (:city (:display_location (:current_observation data)))
         temp (:temp_c (:current_observation data))]
@@ -64,7 +64,7 @@
   []
   (future (loop []
             (->> country-city
-                 (pmap (comp observation->map-entry ut/wug-service-call)) ;parallel map
+                 (pmap (comp observation->map-entry ut/wug-service-call)) ;parallel map to improve the speed
                  (into {} (remove (fn [[k v]] (nil? v))))   ;remove the possibles nil values
                  (reset! city-temperature))
             (Thread/sleep 3600000)                           ;wait for 60 mins
