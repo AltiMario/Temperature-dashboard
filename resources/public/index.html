@@ -7,17 +7,17 @@
 <script type="text/javascript" src="chartkick.js"></script>
 
 <script type="text/javascript">
-var data = [], place = [];
+var temp = [], place = [];
 var socket = new WebSocket("ws://localhost:8080/temperature");
 
 socket.onmessage = function(event) {
-            data.push(JSON.parse(event.data)["temperature"]);
+            temp.push(JSON.parse(event.data)["temperature"]);
             place.push(JSON.parse(event.data)["place"]);
             refreshChart();
 }
 
 function refreshChart(){
-    new Chartkick.LineChart("discrete-line", zip([place,data]));
+    new Chartkick.LineChart("discrete-line", zip([place,temp]));
 }
 
 function zip(arrays) {
