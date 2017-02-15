@@ -5,6 +5,19 @@ A simple dashboard to display the current and forecasted temperature of some Eur
 * Developed with WebSocket and Multithreading architecture. 
 
 
+# Rational
+
+The idea is to display the temperatures that change in semi real-time
+- but the data (from API) is refreshed after some minutes
+- and there is a limited numbers of connection per day
+
+I decided to 
+- apply a forecast algorithm (dummy for now, maybe in future I can do something intelligent) to give the sensation of data constantly refreshed
+- update the chart every hour, with real values retrieved from the API
+
+My main goal was to use somehow WebSocket and Multithreading.
+
+
 ## Technical Requirements
 
 * Java 7+ / Clojure 1.8 / Leiningen 2.x
