@@ -67,7 +67,7 @@
                  (pmap (comp observation->map-entry ut/wug-service-call)) ;parallel map
                  (into {} (remove (fn [[k v]] (nil? v))))   ;remove the possibles nil values
                  (reset! city-temperature))
-            (Thread/sleep 600000)                           ;wait for 60 mins
+            (Thread/sleep 3600000)                           ;wait for 60 mins
             (recur)))
   nil)
 
