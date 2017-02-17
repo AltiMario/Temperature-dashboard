@@ -16,13 +16,13 @@
 
        (fact "should connect to wunderground and retrieve data"
              (:city (:display_location (:current_observation (ut/wug-service-call {:country-code "NO" :city "Oslo"})))) => "Oslo"
-             (:city (:display_location (:current_observation (ut/wug-service-call {:country-code "XYZ" :city "somevalue"})))) = nil
+             (:city (:display_location (:current_observation (ut/wug-service-call {:country-code "XYZ" :city "somevalue"})))) => nil
              )
 
        (fact "should retrieve data from the fake api (just for dev)"
              (:city (:display_location (:current_observation (ut/fake-wug-service-call {:country-code "NO" :city "Oslo"})))) => "Oslo"
-             (:city (:display_location (:current_observation (ut/fake-wug-service-call {:country-code "XYZ" :city "somevalue"})))) = "somevalue"
-             (:city (:display_location (:current_observation (ut/fake-wug-service-call {:country-code "XYZ"})))) = nil))
+             (:city (:display_location (:current_observation (ut/fake-wug-service-call {:country-code "XYZ" :city "somevalue"})))) => "somevalue"
+             (:city (:display_location (:current_observation (ut/fake-wug-service-call {:country-code "XYZ"})))) => nil))
 
 
 (facts "about `forecast-it`"
