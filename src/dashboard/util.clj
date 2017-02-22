@@ -18,20 +18,18 @@
    (if (and (not (empty? country-code))
             (not (empty? city))
             (= service "conditions"))
-     (do
-       (let [base-url "http://api.wunderground.com/api/"]
-           (str base-url wug-key "/" service "/q/" country-code "/" city ".json"))))))
+     (let [base-url "http://api.wunderground.com/api/"]
+       (str base-url wug-key "/" service "/q/" country-code "/" city ".json")))))
 
 
 (defn- call-api
   "retrieve the data from the api"
   [url]
-  (do
-    (json/decode
-      (let [data (cl/get url)]
-        (if (= 200 (:status data))
-          (:body data)
-          (timbre/warn url (:status data) (:body data)))) true)))
+  (json/decode
+    (let [data (cl/get url)]
+      (if (= 200 (:status data))
+        (:body data)
+        (timbre/warn url (:status data) (:body data)))) true))
 
 
 (defn wug-service-call
